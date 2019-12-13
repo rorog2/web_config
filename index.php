@@ -9,10 +9,11 @@ $version = "v1.0beta"
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/png" href="images/gto.png" />
 		<link rel="stylesheet" href="css/style.css" />
+		<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
 	</head>
 	<body>
 		<main>
-			<h1>Configuration Mikrotik <?= $version ?></h1>
+			<h1><img alt="Logo GTO" src="images/gto.png" /> Configuration Mikrotik <?= $version ?></h1>
 			<form action="index.php" method="post">
 				<fieldset>
 					<legend>Informations de base</legend>

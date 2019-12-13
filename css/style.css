@@ -1,4 +1,37 @@
+/*
+Body
+*/
+body {
+	background-color: #203e74;
+}
 
+/*
+Titre
+*/
+h1 {
+	font-family: 'Montserrat';
+	font-weight: bold;
+	color: white;
+}
+
+h1 img {
+	width: 3%;
+	vertical-align: middle;
+}
+
+/*
+Paragraphe
+*/
+p, legend {
+	font-family: 'Montserrat';
+	font-size: 12px;
+	color: white;
+}
+
+input, button {
+	font-family: 'Montserrat';
+	font-size: 12px;
+}
 
 
 /*
