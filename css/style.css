@@ -31,6 +31,12 @@ p, legend, th, td {
 
 input, button {
 	font-size: 12px;
+	cursor: pointer;
+	border-color: black;
+}
+input[type="checkbox"]{
+	border-width: 3px;
+	border-color: black;
 }
 
 
