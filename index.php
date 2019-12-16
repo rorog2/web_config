@@ -105,6 +105,9 @@ $version = "v1.0beta"
 				</p>
 			</form>
 		</main>
+		<script type="text/javascript" src="js/hex-rb750gr3.js"></script>
+		<script type="text/javascript" src="js/rb951.js"></script>
+		<script type="text/javascript" src="js/rb3011-uias-rm.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
 		<noscript>Désoler, votre navigateur ne supporte pas le JavaScript !</noscript>
 	</body>

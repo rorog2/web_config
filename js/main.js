@@ -1,5 +1,4 @@
 //alert("ALERTE");
-
 /*
 ###################################################################################
 #                                   EVENEMENTS                                    #
@@ -17,13 +16,13 @@ document.getElementById("nbLAN").addEventListener("change", changementINT);
 ###################################################################################
 */
 
-var nom = document.getElementById("nom");
-var cesoUser = document.getElementById("cesoUser");
-var cesoMDP = document.getElementById("cesoMDP");
-var localUser = document.getElementById("localUser");
-var localMDP = document.getElementById("localMDP");
-var modele = document.getElementById("modele");
-var nbLAN = document.getElementById("nbLAN");
+var nom = document.getElementById("nom").value;
+var cesoUser = document.getElementById("cesoUser").value;
+var cesoMDP = document.getElementById("cesoMDP").value;
+var localUser = document.getElementById("localUser").value;
+var localMDP = document.getElementById("localMDP").value;
+var modele = document.getElementById("modele").selectedIndex;
+var nbLAN = document.getElementById("nbLAN").value;
 var index = "";
 var interfaceLAN1 = ["", "", "", "", "", "", "", "", ""];
 var interfaceLAN2 = ["", "", "", "", "", "", "", "", ""];
@@ -33,18 +32,18 @@ for (var i = 2; i <= 10; i++) {
 	index = "2" + i;
 	interfaceLAN2[i] = document.getElementById(index);
 }
-var nat = document.getElementById("nat");
-var ssid = document.getElementById("ssid");
-var psk = document.getElementById("psk");
+var nat = document.getElementById("nat").checked;
+var ssid = document.getElementById("ssid").value;
+var psk = document.getElementById("psk").value;
 var ipClient = ["", "", "", "", "", "", "", "", ""];
 var ipGateway = ["", "", "", "", "", "", "", "", ""];
 for (var i = 1; i <= 4; i++) {
 	index = "ipclient" + i;
-	ipClient[i] = document.getElementById(index);
+	ipClient[i] = document.getElementById(index).value;
 	index = "ipgateway" + i;
-	ipGateway[i] = document.getElementById(index);
+	ipGateway[i] = document.getElementById(index).value;
 }
-var masque = document.getElementById("masque");
+var masque = document.getElementById("masque").value;
 
 
 /*
@@ -54,8 +53,8 @@ var masque = document.getElementById("masque");
 */
 
 function changementINT() {
-	if(modele.value == "hex-rb750gr3" || modele.value == "rb951") {
-		if (nbLAN.value == 1) {
+	if(modele < 2) {
+		if (nbLAN == 1) {
 			for (var i = 2; i <= 10; i++) {
 				if (i <=5) {
 					interfaceLAN1[i].disabled = false;
@@ -69,7 +68,7 @@ function changementINT() {
 				interfaceLAN2[i].checked = false;
 			}
 		}
-		else if (nbLAN.value == 2) {
+		else if (nbLAN == 2) {
 			for (var i = 2; i <= 10; i++) {
 				if (i <= 5) {
 					interfaceLAN1[i].disabled = false;
@@ -85,7 +84,7 @@ function changementINT() {
 				}
 			}
 		}
-		if (modele.value == "rb951") {
+		if (modele == 1) {
 			ssid.disabled = false;
 			psk.disabled = false;
 		}
@@ -96,8 +95,8 @@ function changementINT() {
 			psk.value = "";
 		}
 	}
-	else if (modele.value == "rb3011-uias-rm") {
-		if (nbLAN.value == 1) {
+	else if (modele == 2) {
+		if (nbLAN == 1) {
 			for (var i = 2; i <= 10; i++) {
 				interfaceLAN1[i].disabled = false;
 				interfaceLAN1[i].checked = true;
@@ -105,7 +104,7 @@ function changementINT() {
 				interfaceLAN2[i].checked = false;
 			}
 		}
-		else if (nbLAN.value == 2) {
+		else if (nbLAN == 2) {
 			for (var i = 2; i <= 10; i++) {
 				interfaceLAN1[i].disabled = false;
 				interfaceLAN1[i].checked = true;
@@ -123,24 +122,24 @@ function changementINT() {
 
 function generer() {
 	//Montage des IPs
-	var clientIP = ipClient[0].value + "." + ipClient[1].value + "." + ipClient[2].value + "." + ipClient[3].value;
-	var gatewayIP = ipGateway[0].value + "." + ipGateway[1].value + "." + ipGateway[2].value + "." + ipGateway[3].value;
-	if (masque.value != 31) {
-		clientIP += masque.value;
+	var clientIP = ipClient[1] + "." + ipClient[2] + "." + ipClient[3] + "." + ipClient[4];
+	var gatewayIP = ipGateway[1] + "." + ipGateway[2] + "." + ipGateway[3] + "." + ipGateway[4];
+	if (masque != 31) {
+		clientIP += masque;
 	}
 
 	//Vérification du champs nom
-	if (nom.value == "") {
+	if (nom == "") {
 		alert("Vous n'avez pas renseigné de nom pour le routeur !");
 		return;
 	}
-
+	
 	//Vérification des champs d'authentification
-	if (cesoUser.value == "" || cesoMDP.value == "") {
+	if (cesoUser == "" || cesoMDP == "") {
 		alert("Vous avez mal renseigné les information d'authentification pour CESO !");
 		return;
 	}
-	if (localUser.value == "" || localMDP.value == "") {
+	if (localUser == "" || localMDP == "") {
 		alert("Vous avez mal renseigné les information d'authentification pour l'utilisateur local !");
 		return;
 	}
@@ -155,15 +154,15 @@ function generer() {
 			alert("Vous ne pouvez pas affecter une interface à plusieurs LAN !");
 			return;
 		}
-		else if (lan1[i] == false && lan2[i] == false) {
+		else if (lan1[i] == false && lan2[i] == false && modele == 2) {
 			alert("Vous n'avez pas affecter toutes les interfaces dans le ou les LAN !");
 			return;
 		}
 	}
 
 	//Vérirication des paramètres Wifi
-	if (modele.value == "rb951") {
-		if (ssid.value == "" || psk.value == "") {
+	if (modele == 1) {
+		if (ssid == "" || psk == "") {
 			alert("Vous avez mal renseigné les champs de la configuration Wifi !");
 			return;
 		}
@@ -171,26 +170,26 @@ function generer() {
 
 	//Vérification des adresses IPs
 	for (var i = 1; i <= 4; i++) {
-		if(ipClient[i].value == "") {
+		if(ipClient[i] == "") {
 			alert("Vous avez mal renseigné l'adresse IP du client !");
 			return;
 		}
 	}
 	for (var i = 1; i <= 4; i++) {
-		if(ipGateway[i].value == "") {
+		if(ipGateway[i] == "") {
 			alert("Vous avez mal renseigné l'adresse IP de la gateway !");
 			return;
 		}
 	}
 
 	//Vérification des @IPs identiques
-	if (ipClient[0].value + "." + ipClient[1].value + "." + ipClient[2].value + "." + ipClient[3].value == ipGateway[0].value + "." + ipGateway[1].value + "." + ipGateway[2].value + "." + ipGateway[3].value) {
+	if (ipClient[1] + "." + ipClient[2] + "." + ipClient[3] + "." + ipClient[4] == ipGateway[1] + "." + ipGateway[2] + "." + ipGateway[3] + "." + ipGateway[4]) {
 		alert("Les adresses IP renseignées sont identiques !");
 		return;
 	}
 
 	//Vérification du masque
-	if (masque.value < 25 || masque.value > 31) {
+	if (masque < 25 || masque > 31) {
 		alert("Le masque n'est pas compris entre 25 et 31 !");
 		return;
 	}
@@ -210,6 +209,46 @@ function generer() {
 	}
 
 	//---------------------------SAUVEGARDE FICHIER--------------------------------
+	//Récupération de la configuration
+	var hex_rb750gr3 = hexrb750gr3(nom, cesoUser, cesoMDP, localUser, localMDP, affectation[2], affectation[3], affectation[4], affectation[5], nat, clientIP, gatewayIP);
+	alert("Conf 1");
+
+	//Sélection de la configuration
+	var configuration = "";
+	if (modele == 0) {
+		configuration = hex_rb750gr3;
+	}
+	else if (modele == 1) {
+		configuration = rb951;
+	}
+	else if (modele == 2) {
+		configuration = rb9011;
+	}
+
+	//Ecriture dans un fichier
+	var fileSystem = new ActiveXObject("Scripting.fileSystemObject");
+	var fichier = fileSystem.OpenTextFile("../config/configuration.rsc", 2, true);
+
+	//Ecriture dans un fichier
+	fichier.Write(configuration);
+	fichier.Close();
+
+	window.open("../config/configuration.rsc", "_blank", null);
+
+/*
+	//Création d'un lien
+	var download = document.createElement('a');
+
+	//Contenu
+	dowload.setAttribute('href',"data:text/plain;charset=utf-8,"+encodeURIComponent("coucou c'est moi !!!"));
+
+	//Nom du fichier
+	download.setAttribute('download',"test.txt");
+
+	//Simulation d'un click
+	download.click();
+
+*/
 }
 
 
