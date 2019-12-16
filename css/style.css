@@ -3,6 +3,7 @@ Body
 */
 body {
 	background-color: #203e74;
+	font-family: 'Montserrat';
 }
 
 /*
@@ -17,19 +18,18 @@ h1 {
 h1 img {
 	width: 3%;
 	vertical-align: middle;
+	margin-right: 0.5em;
 }
 
 /*
 Paragraphe
 */
-p, legend {
-	font-family: 'Montserrat';
-	font-size: 12px;
+p, legend, th, td {
 	color: white;
+	font-size: 12px;
 }
 
 input, button {
-	font-family: 'Montserrat';
 	font-size: 12px;
 }
 

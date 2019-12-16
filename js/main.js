@@ -33,6 +33,7 @@ for (var i = 2; i <= 10; i++) {
 	index = "2" + i;
 	interfaceLAN2[i] = document.getElementById(index);
 }
+var nat = document.getElementById("nat");
 var ssid = document.getElementById("ssid");
 var psk = document.getElementById("psk");
 var ipClient = ["", "", "", "", "", "", "", "", ""];

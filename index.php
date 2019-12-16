@@ -13,7 +13,7 @@ $version = "v1.0beta"
 	</head>
 	<body>
 		<main>
-			<h1><img alt="Logo GTO" src="images/gto.png" /> Configuration Mikrotik <?= $version ?></h1>
+			<h1><img alt="Logo GTO" src="images/gto.png" />Configuration Mikrotik <?= $version ?></h1>
 			<form action="index.php" method="post">
 				<fieldset>
 					<legend>Informations de base</legend>
@@ -66,6 +66,10 @@ $version = "v1.0beta"
 							</tr>
 							<?php endfor; ?>
 						</table>
+					</p>
+					<p>
+						<label for="nat">NAT: </label>
+						<input type="checkbox" name="nat" id="nat" checked />
 					</p>
 					<p>
 						<label for="SSID">SSID: </label>
