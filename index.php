@@ -56,7 +56,7 @@ $version = "v1.0beta"
 							<input type="number" name="nbLAN" id="nbLAN" min="1" max="2" value="1" class="form-control">
 						</p>
 						<p>
-							<table class="table table-striped">
+							<table class="table table-bordered table-striped">
 								<!-- <caption>Assignation des interfaces</caption> -->
 								<tr>
 									<th></th>
@@ -93,18 +93,18 @@ $version = "v1.0beta"
 						<legend>Assignation des adresses IP</legend>
 						<p>
 							<label for="ipclient">IP Client: </label>
-							<input class="ip" type="text" name="ipclient1" id="ipclient1" class="form-control" /> .
-							<input class="ip" type="text" name="ipclient2" id="ipclient2" class="form-control" /> .
-							<input class="ip" type="text" name="ipclient3" id="ipclient3" class="form-control" /> .
-							<input class="ip" type="text" name="ipclient4" id="ipclient4" class="form-control" /> /
-							<input class="ip" type="number" name="masque" id="masque" min="25" max="31" value="31"  class="form-control" />
+							<input class="ip" type="text" name="ipclient1" id="ipclient1" class="form-control ip" /> .
+							<input class="ip" type="text" name="ipclient2" id="ipclient2" class="form-control ip" /> .
+							<input class="ip" type="text" name="ipclient3" id="ipclient3" class="form-control ip" /> .
+							<input class="ip" type="text" name="ipclient4" id="ipclient4" class="form-control ip" /> /
+							<input class="ip" type="number" name="masque" id="masque" min="25" max="31" value="31"  class="form-control ip" />
 						</p>
 						<p>
 							<label for="ipclient">IP Gateway: </label>
-							<input class="ip" type="text" name="ipgateway1" id="ipgateway1" class="form-control" /> .
-							<input class="ip" type="text" name="ipgateway2" id="ipgateway2" class="form-control" /> .
-							<input class="ip" type="text" name="ipgateway3" id="ipgateway3" class="form-control" /> .
-							<input class="ip" type="text" name="ipgateway4" id="ipgateway4" class="form-control" />
+							<input class="ip" type="text" name="ipgateway1" id="ipgateway1" class="form-control ip" /> .
+							<input class="ip" type="text" name="ipgateway2" id="ipgateway2" class="form-control ip" /> .
+							<input class="ip" type="text" name="ipgateway3" id="ipgateway3" class="form-control ip" /> .
+							<input class="ip" type="text" name="ipgateway4" id="ipgateway4" class="form-control ip" />
 						</p>
 					</fieldset>
 					<p>

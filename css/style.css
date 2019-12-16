@@ -1,12 +1,24 @@
-button img{
-	width: 2%;
-}
-
 header h1 img {
 	margin-right: 2%;
-	width: 5%;
+	width: 100px;
 }
 
 header {
 	margin-top: 1%;
+}
+
+.ip{
+	text-align: center;
+	width: 10%;
+}
+
+#nat{
+	text-align: left;
+}
+
+th{
+	text-align: center;
+}
+.page-header{
+	margin-bottom: 40px;
 }
