@@ -1,52 +1,12 @@
-/*
-Body
-*/
-body {
-	background-color: #203e74;
-	font-family: 'Montserrat';
+button img{
+	width: 2%;
 }
 
-/*
-Titre
-*/
-h1 {
-	font-family: 'Montserrat';
-	font-weight: bold;
-	color: white;
+header h1 img {
+	margin-right: 2%;
+	width: 5%;
 }
 
-h1 img {
-	width: 3%;
-	vertical-align: middle;
-	margin-right: 0.5em;
-}
-
-/*
-Paragraphe
-*/
-p, legend, th, td {
-	color: white;
-	font-size: 12px;
-}
-
-input, button {
-	font-size: 12px;
-	cursor: pointer;
-	border-color: black;
-}
-input[type="checkbox"]{
-	border-width: 3px;
-	border-color: black;
-}
-
-
-/*
-Bouton générer
-*/
-button {
-	width: 10%;
-}
-button img {
-	width: 10%;
-	vertical-align: middle;
+header {
+	margin-top: 1%;
 }
