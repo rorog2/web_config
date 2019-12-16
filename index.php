@@ -14,7 +14,7 @@ $version = "v1.0beta"
 	<body>
 		<main>
 			<h1><img alt="Logo GTO" src="images/gto.png" />Configuration Mikrotik <?= $version ?></h1>
-			<form action="index.php" method="post">
+			<form action="config.php" method="post" id="formulaire">
 				<fieldset>
 					<legend>Informations de base</legend>
 					<p>
@@ -24,12 +24,12 @@ $version = "v1.0beta"
 					<p>
 						<label for="cesoUser">Utilisateur CESO: </label>
 						<input type="text" name="cesoUser" id="cesoUser" value="ceso">
-						<input type="text" name="cesoMDP" id="cesoMDP" value="isx@3009">
+						<input type="text" name="cesoMdp" id="cesoMdp" value="isx@3009">
 					</p>
 					<p>
 						<label for="localUser">Utilisateur local: </label>
 						<input type="text" name="localUser" id="localUser" value="client">
-						<input type="text" name="localMDP" id="localMDP" value="ceso-admin">
+						<input type="text" name="localMdp" id="localMdp" value="ceso-admin">
 					</p>
 				</fieldset>
 				<fieldset>
@@ -58,10 +58,10 @@ $version = "v1.0beta"
 							<tr>
 								<td><?= $i ?></td>
 								<td>
-									<input type="checkbox" name="1<?= $i ?>" id="1<?= $i ?>" class="lan1" />
+									<input type="checkbox" name="e1<?= $i ?>" id="1<?= $i ?>" class="lan1" />
 								</td>
 								<td>
-									<input type="checkbox" name="2<?= $i ?>" id="2<?= $i ?>" class="lan2" />
+									<input type="checkbox" name="e2<?= $i ?>" id="2<?= $i ?>" class="lan2" />
 								</td>
 							</tr>
 							<?php endfor; ?>

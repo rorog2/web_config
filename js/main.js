@@ -15,14 +15,13 @@ document.getElementById("nbLAN").addEventListener("change", changementINT);
 #                                     ELEMENTS                                    #
 ###################################################################################
 */
-
 var nom = document.getElementById("nom").value;
 var cesoUser = document.getElementById("cesoUser").value;
-var cesoMDP = document.getElementById("cesoMDP").value;
+var cesoMDP = document.getElementById("cesoMdp").value;
 var localUser = document.getElementById("localUser").value;
-var localMDP = document.getElementById("localMDP").value;
+var localMDP = document.getElementById("localMdp").value;
 var modele = document.getElementById("modele").selectedIndex;
-var nbLAN = document.getElementById("nbLAN").value;
+var nbLAN = parseInt(document.getElementById("nbLAN").value);
 var index = "";
 var interfaceLAN1 = ["", "", "", "", "", "", "", "", ""];
 var interfaceLAN2 = ["", "", "", "", "", "", "", "", ""];
@@ -33,8 +32,8 @@ for (var i = 2; i <= 10; i++) {
 	interfaceLAN2[i] = document.getElementById(index);
 }
 var nat = document.getElementById("nat").checked;
-var ssid = document.getElementById("ssid").value;
-var psk = document.getElementById("psk").value;
+var ssid = document.getElementById("ssid");
+var psk = document.getElementById("psk");
 var ipClient = ["", "", "", "", "", "", "", "", ""];
 var ipGateway = ["", "", "", "", "", "", "", "", ""];
 for (var i = 1; i <= 4; i++) {
@@ -44,7 +43,39 @@ for (var i = 1; i <= 4; i++) {
 	ipGateway[i] = document.getElementById(index).value;
 }
 var masque = document.getElementById("masque").value;
+var formulaire = document.getElementById("formulaire");
 
+function recuperer_valueur() {
+	nom = document.getElementById("nom").value;
+cesoUser = document.getElementById("cesoUser").value;
+cesoMDP = document.getElementById("cesoMdp").value;
+localUser = document.getElementById("localUser").value;
+localMDP = document.getElementById("localMdp").value;
+modele = document.getElementById("modele").selectedIndex;
+nbLAN = parseInt(document.getElementById("nbLAN").value);
+index = "";
+interfaceLAN1 = ["", "", "", "", "", "", "", "", ""];
+interfaceLAN2 = ["", "", "", "", "", "", "", "", ""];
+for (var i = 2; i <= 10; i++) {
+	index = "1" + i;
+	interfaceLAN1[i] = document.getElementById(index);
+	index = "2" + i;
+	interfaceLAN2[i] = document.getElementById(index);
+}
+nat = document.getElementById("nat").checked;
+ssid = document.getElementById("ssid");
+psk = document.getElementById("psk");
+ipClient = ["", "", "", "", "", "", "", "", ""];
+ipGateway = ["", "", "", "", "", "", "", "", ""];
+for (var i = 1; i <= 4; i++) {
+	index = "ipclient" + i;
+	ipClient[i] = document.getElementById(index).value;
+	index = "ipgateway" + i;
+	ipGateway[i] = document.getElementById(index).value;
+}
+masque = document.getElementById("masque").value;
+formulaire = document.getElementById("formulaire");
+}
 
 /*
 ###################################################################################
@@ -53,6 +84,11 @@ var masque = document.getElementById("masque").value;
 */
 
 function changementINT() {
+	//Récupération des variables
+	modele = document.getElementById("modele").selectedIndex;
+	nbLAN = parseInt(document.getElementById("nbLAN").value);
+	
+	//Conditionnement ds checkbox et des champs de texte du wifi
 	if(modele < 2) {
 		if (nbLAN == 1) {
 			for (var i = 2; i <= 10; i++) {
@@ -121,6 +157,9 @@ function changementINT() {
 
 
 function generer() {
+	//Recuperation des valeurs
+	recuperer_valueur();
+
 	//Montage des IPs
 	var clientIP = ipClient[1] + "." + ipClient[2] + "." + ipClient[3] + "." + ipClient[4];
 	var gatewayIP = ipGateway[1] + "." + ipGateway[2] + "." + ipGateway[3] + "." + ipGateway[4];
@@ -135,11 +174,11 @@ function generer() {
 	}
 	
 	//Vérification des champs d'authentification
-	if (cesoUser == "" || cesoMDP == "") {
+	if (cesoUser === "" || cesoMDP === "") {
 		alert("Vous avez mal renseigné les information d'authentification pour CESO !");
 		return;
 	}
-	if (localUser == "" || localMDP == "") {
+	if (localUser === "" || localMDP === "") {
 		alert("Vous avez mal renseigné les information d'authentification pour l'utilisateur local !");
 		return;
 	}
@@ -162,7 +201,7 @@ function generer() {
 
 	//Vérirication des paramètres Wifi
 	if (modele == 1) {
-		if (ssid == "" || psk == "") {
+		if (ssid.value == "" || psk.value == "") {
 			alert("Vous avez mal renseigné les champs de la configuration Wifi !");
 			return;
 		}
@@ -170,13 +209,13 @@ function generer() {
 
 	//Vérification des adresses IPs
 	for (var i = 1; i <= 4; i++) {
-		if(ipClient[i] == "") {
+		if(ipClient[i] === "") {
 			alert("Vous avez mal renseigné l'adresse IP du client !");
 			return;
 		}
 	}
 	for (var i = 1; i <= 4; i++) {
-		if(ipGateway[i] == "") {
+		if(ipGateway[i] === "") {
 			alert("Vous avez mal renseigné l'adresse IP de la gateway !");
 			return;
 		}
@@ -209,46 +248,7 @@ function generer() {
 	}
 
 	//---------------------------SAUVEGARDE FICHIER--------------------------------
-	//Récupération de la configuration
-	var hex_rb750gr3 = hexrb750gr3(nom, cesoUser, cesoMDP, localUser, localMDP, affectation[2], affectation[3], affectation[4], affectation[5], nat, clientIP, gatewayIP);
-	alert("Conf 1");
-
-	//Sélection de la configuration
-	var configuration = "";
-	if (modele == 0) {
-		configuration = hex_rb750gr3;
-	}
-	else if (modele == 1) {
-		configuration = rb951;
-	}
-	else if (modele == 2) {
-		configuration = rb9011;
-	}
-
-	//Ecriture dans un fichier
-	var fileSystem = new ActiveXObject("Scripting.fileSystemObject");
-	var fichier = fileSystem.OpenTextFile("../config/configuration.rsc", 2, true);
-
-	//Ecriture dans un fichier
-	fichier.Write(configuration);
-	fichier.Close();
-
-	window.open("../config/configuration.rsc", "_blank", null);
-
-/*
-	//Création d'un lien
-	var download = document.createElement('a');
-
-	//Contenu
-	dowload.setAttribute('href',"data:text/plain;charset=utf-8,"+encodeURIComponent("coucou c'est moi !!!"));
-
-	//Nom du fichier
-	download.setAttribute('download',"test.txt");
-
-	//Simulation d'un click
-	download.click();
-
-*/
+	formulaire.submit();
 }
 
 
