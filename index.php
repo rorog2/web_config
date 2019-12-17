@@ -122,7 +122,7 @@ $version = "v1.0beta"
 		</div>
 		<footer class="row">
         	<div class="col-sm-12">
-        		Pied de page
+        		
         	</div>
       	</footer>
 		<script type="text/javascript" src="js/hex-rb750gr3.js"></script>
