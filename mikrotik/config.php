@@ -61,5 +61,5 @@ elseif($_POST['modele'] == 'rb3011-uias-rm'){
 	file_put_contents('config.rsc', $rb3011->afficher_config());
 }
 
-header('Location: index.php');
+header('Location: index.php?download');
 ?>

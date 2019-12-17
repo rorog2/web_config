@@ -1,5 +1,13 @@
 <?php
-$version = "v1.0beta"
+$version = "v1.0beta";
+
+if(isset($_GET['download'])){
+	header('Content-Type: application/octet-stream');
+	header('Content-Disposition: attachment; filename=config.cfg;');
+	header('Content-Length: '.filesize('config.cfg'));
+	readfile('config.rsc');
+	header('Location: index.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +33,7 @@ $version = "v1.0beta"
 			<main class="col-sm-6">
 				<form action="config.php" method="post" id="formulaire">
 					<fieldset>
-						<legend>Paramètres</legend>
+						<legend>Paramètres de base</legend>
 						<p>
 							<label for="hostname">Hostname: </label>
 							<input type="text" name="hostname" id="hostname" class="form-control" placeholder="Nom de l'équipement..." />
@@ -37,6 +45,16 @@ $version = "v1.0beta"
 						<p>
 							<label for="mdp">Mot de passe: </label>
 							<input type="text" name="mdp" id="mdp" class="form-control" placeholder="Mot de passe du compte administrateur..." />
+						</p>
+						<p>
+							<label for="modele">Modèle: </label>
+							<select name="modele" id="modele" class="form-control">
+								<option value="4131">4131</option>
+								<option value="4171">4171</option>
+								<option value="4634">4636</option>
+								<option value="4638">4638</option>
+								<option value="4970">4970</option>
+							</select>
 						</p>
 					</fieldset>
 					<fieldset>
@@ -115,7 +133,7 @@ $version = "v1.0beta"
 						<legend>Paramètres PRI</legend>
 						<p>
 							<label for="canauxt2">Nombre de canaux T2: </label>
-							<input type="text" name="canauxt2" id="canauxt2" class="form-control" placeholder="Max 15 ou 30..." />
+							<input type="text" name="canauxt2" id="canauxt2" class="form-control" value="15" placeholder="Max 15 ou 30..." />
 						</p>
 					</fieldset>
 					<p>

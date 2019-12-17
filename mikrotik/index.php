@@ -1,5 +1,13 @@
 <?php
-$version = "v1.0beta"
+$version = "v1.0beta";
+
+if(isset($_GET['download'])){
+	header('Content-Type: application/octet-stream');
+	header('Content-Disposition: attachment; filename=config.rsc;');
+	header('Content-Length: '.filesize('config.rsc'));
+	readfile('config.rsc');
+	header('Location: index.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,13 +39,13 @@ $version = "v1.0beta"
 						</p>
 						<p>
 							<label for="cesoUser">Utilisateur CESO: </label>
-							<input type="text" name="cesoUser" id="cesoUser" value="ceso" class="form-control">
+							<input type="text" name="cesoUser" id="cesoUser" value="gto" class="form-control">
 							<input type="text" name="cesoMdp" id="cesoMdp" value="isx@3009" class="form-control">
 						</p>
 						<p>
 							<label for="localUser">Utilisateur local: </label>
 							<input type="text" name="localUser" id="localUser" value="client" class="form-control">
-							<input type="text" name="localMdp" id="localMdp" value="ceso-admin" class="form-control">
+							<input type="text" name="localMdp" id="localMdp" value="gto-admin" class="form-control">
 						</p>
 					</fieldset>
 					<fieldset>
