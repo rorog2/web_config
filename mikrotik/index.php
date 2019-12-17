@@ -112,6 +112,11 @@ $version = "v1.0beta"
 								<span class="glyphicon glyphicon-ok-sign"></span>
 								Générer
 							</button>
+							<a href="../index.php">
+								<button type="button" id="generer" class="btn btn-danger">
+									Retour vers l'acceuil
+								</button>
+							</a>
 						</center>
 					</p>
 				</form>
