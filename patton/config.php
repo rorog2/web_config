@@ -1,4 +1,5 @@
 <?php
+
 //Inclusion des classes modèles
 include('m4131.php');
 include('m4171.php');
@@ -86,6 +87,28 @@ elseif($modele == "4638"){
 elseif($modele == "4970"){
 	file_put_contents("config.cfg", $m4970->afficher_config());
 }
+
+//Génération du fichier des paramètres
+$parametres = "Hostname: ".$hostname."\n
+Login administrateur: ".$administrator."\n
+Mot de passe administrateur: ".$mdp."\n
+Modele: ".$modele."\n
+Adresse IP: ".$adressage."\n
+Gateway: ".$gateway."\n
+Serveur SIP: ".$sipserverIP."\n
+Port serveur SIP: ".$sipserverPort."\n
+Login serveur SIP: ".$sipserverLogin."\n
+Password serveur SIP: ".$sipserverPassword."\n
+Layer 2 protocol: ".$l2protocol."\n
+Format d'appel entrant: ".$incallform." chiffres\n
+Format d'appel sortant: ".$outcallform." chiffres";
+
+file_put_contents("parametres.txt", $parametres);
+
+header('Content-Type: text/plain');
+header('Content-Disposition: attachment; filename=parametres.txt;');
+header('Content-Length: '.filesize('parametres.txt'));
+readfile('parametres.txt');
 
 header('Location: index.php?download');
 

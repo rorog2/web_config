@@ -1,0 +1,25 @@
+Hostname: test
+
+Login administrateur: admin
+
+Mot de passe administrateur: ceso
+
+Modele: 4634
+
+Adresse IP: dhcp
+
+Gateway: 
+
+Serveur SIP: sip.openvno.net
+
+Port serveur SIP: 5060
+
+Login serveur SIP: admin
+
+Password serveur SIP: ceso
+
+Layer 2 protocol: pp
+
+Format d'appel entrant: 10
+
+Format d'appel sortant: 10

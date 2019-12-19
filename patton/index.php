@@ -1,12 +1,13 @@
 <?php
 $version = "v1.0beta";
 
+//Téléchargement de la configuration
 if(isset($_GET['download'])){
 	header('Content-Type: application/octet-stream');
 	header('Content-Disposition: attachment; filename=config.cfg;');
 	header('Content-Length: '.filesize('config.cfg'));
 	readfile('config.cfg');
-	header('Location: index.php');
+	header('Location: index.php?download');
 }
 ?>
 

@@ -61,5 +61,20 @@ elseif($_POST['modele'] == 'rb3011-uias-rm'){
 	file_put_contents('config.rsc', $rb3011->afficher_config());
 }
 
+//Génération du fichier de paramètre
+$parametres = "Nom du router: ".$nom."\n
+Nom d'utilisateur ceso: ".$cesoUser."\n
+Mot de passe ceso: ".$cesoMdp."\n
+Nom d'utilisateur client: ".$localUser."\n
+Mot de passe client: ".$localMdp."\n
+Modèle: ".$_POST['modele']."\n
+NAT: ".$nat."\n
+SSID: ".$ssid."\n
+PSK: ".$psk."\n
+IP client: ".$clientIP."\n
+IP Gateway: ".$gatewayIP;
+
+file_put_contents("parametres.txt", $parametres);
+
 header('Location: index.php?download');
 ?>
