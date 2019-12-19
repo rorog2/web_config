@@ -1,6 +1,11 @@
 <?php
 //Inclusion des classes modèles
 include('m4131.php');
+include('m4171.php');
+include('m4634.php');
+include('m4638.php');
+include('m4970.php');
+
 
 //De base
 $hostname = $_POST['hostname'];
@@ -59,6 +64,9 @@ else{
 //Classe
 $m4131 = new M4131($hostname, $administrator, $mdp, $adressage, $gateway, $dns, $sntp, $sipserverIP, $sipserverPort, $sipserverLogin, $sipserverPassword, $l2protocol, $incall, $outcall);
 $m4171 = new M4171($hostname, $administrator, $mdp, $adressage, $gateway, $dns, $sntp, $sipserverIP, $sipserverPort, $sipserverLogin, $sipserverPassword, $l2protocol, $incall, $outcall, $canauxt2);
+$m4638 = new M4634($hostname, $administrator, $mdp, $adressage, $gateway, $dns, $sntp, $sipserverIP, $sipserverPort, $sipserverLogin, $sipserverPassword, $l2protocol, $incall, $outcall);
+$m4634 = new M4638($hostname, $administrator, $mdp, $adressage, $gateway, $dns, $sntp, $sipserverIP, $sipserverPort, $sipserverLogin, $sipserverPassword, $l2protocol, $incall, $outcall);
+$m4970 = new M4970($hostname, $administrator, $mdp, $adressage, $gateway, $dns, $sntp, $sipserverIP, $sipserverPort, $sipserverLogin, $sipserverPassword, $l2protocol, $incall, $outcall, $canauxt2);
 
 
 
@@ -69,7 +77,16 @@ if($modele == "4131"){
 elseif($modele == "4171"){
 	file_put_contents("config.cfg", $m4171->afficher_config());
 }
+elseif($modele == "4634"){
+	file_put_contents("config.cfg", $m4634->afficher_config());
+}
+elseif($modele == "4638"){
+	file_put_contents("config.cfg", $m4638->afficher_config());
+}
+elseif($modele == "4970"){
+	file_put_contents("config.cfg", $m4970->afficher_config());
+}
 
-header('Location: index.php');
+header('Location: index.php?download');
 
 ?>

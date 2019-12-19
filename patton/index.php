@@ -5,7 +5,7 @@ if(isset($_GET['download'])){
 	header('Content-Type: application/octet-stream');
 	header('Content-Disposition: attachment; filename=config.cfg;');
 	header('Content-Length: '.filesize('config.cfg'));
-	readfile('config.rsc');
+	readfile('config.cfg');
 	header('Location: index.php');
 }
 ?>
