@@ -58,9 +58,16 @@ else{
 
 //Classe
 $m4131 = new M4131($hostname, $administrator, $mdp, $adressage, $gateway, $dns, $sntp, $sipserverIP, $sipserverPort, $sipserverLogin, $sipserverPassword, $l2protocol, $incall, $outcall);
+$m4171 = new M4171($hostname, $administrator, $mdp, $adressage, $gateway, $dns, $sntp, $sipserverIP, $sipserverPort, $sipserverLogin, $sipserverPassword, $l2protocol, $incall, $outcall, $canauxt2);
 
+
+
+//Génération du fichier de configuration
 if($modele == "4131"){
 	file_put_contents('config.cfg', $m4131->afficher_config());
+}
+elseif($modele == "4171"){
+	file_put_contents("config.cfg", $m4171->afficher_config());
 }
 
 header('Location: index.php');
