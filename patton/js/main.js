@@ -33,27 +33,27 @@ var incallform = document.getElementById("incallform").selectedIndex;
 var outcallform = document.getElementById("outcallform").selectedIndex;
 var canauxt2 = document.getElementById("canauxt2").value;
 var canauxt2champ = document.getElementById("canauxt2").value;
-var formulaire = document.getElementById("formulaire").value;
+var formulaire = document.getElementById("formulaire");
 
 function recup_valeur() {
-	var hostname = document.getElementById("hostname").value;
-	var username = document.getElementById("administrator").value;
-	var password = document.getElementById("mdp").value;
-	var modele = document.getElementById("modele").selectedIndex;
-	var ipaddress = document.getElementById("ipaddress").value;
-	var mask = document.getElementById("mask").value;
-	var gateway = document.getElementById("gateway").value;
-	var dns = document.getElementById("dns").value;
-	var sntp = document.getElementById("sntp").value;
-	var sipserverIP = document.getElementById("sipserverIP").value;
-	var sipserverPort = document.getElementById("sipserverPort").value;
-	var sipserverLogin = document.getElementById("sipserverLogin").value;
-	var sipserverPassword = document.getElementById("sipserverPassword").value;
-	var l2protocol = document.getElementById("l2protocol").value;
-	var incallform = document.getElementById("incallform").selectedIndex;
-	var outcallform = document.getElementById("outcallform").selectedIndex;
-	var canauxt2 = document.getElementById("canauxt2").value;
-	var canauxt2champ = document.getElementById("canauxt2").value;
+	hostname = document.getElementById("hostname").value;
+	username = document.getElementById("administrator").value;
+	password = document.getElementById("mdp").value;
+	modele = document.getElementById("modele").selectedIndex;
+	ipaddress = document.getElementById("ipaddress").value;
+	mask = document.getElementById("mask").value;
+	gateway = document.getElementById("gateway").value;
+	dns = document.getElementById("dns").value;
+	sntp = document.getElementById("sntp").value;
+	sipserverIP = document.getElementById("sipserverIP").value;
+	sipserverPort = document.getElementById("sipserverPort").value;
+	sipserverLogin = document.getElementById("sipserverLogin").value;
+	sipserverPassword = document.getElementById("sipserverPassword").value;
+	l2protocol = document.getElementById("l2protocol").value;
+	incallform = document.getElementById("incallform").selectedIndex;
+	outcallform = document.getElementById("outcallform").selectedIndex;
+	canauxt2 = document.getElementById("canauxt2").value;
+	canauxt2champ = document.getElementById("canauxt2").value;
 }
 
 
@@ -97,12 +97,14 @@ function generer() {
 	}
 
 	//Vérification de l'adresse IP
-	if(ipaddress != "dhcp" || ipaddress.length != 15){
-		alert("Vous n'avez pas ou mal rensigné l'adresse IP !");
-		return;
+	if(ipaddress == "dhcp" || ipaddress.length <= 15){
 		if(ipaddress == "dhcp"){
 			dhcp = true;
 		}
+	}
+	else{
+		alert("Vous n'avez pas ou mal rensigné l'adresse IP !");
+		return;
 	}
 
 	//Vérification du masque
