@@ -1,5 +1,5 @@
 <?php
-$version = "v1.0beta";
+$version = "v1.0beta1";
 
 //Téléchargement de la configuration
 if(isset($_GET['download'])){

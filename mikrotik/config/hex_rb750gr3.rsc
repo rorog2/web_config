@@ -96,5 +96,6 @@ set note="   ____                              _____    _                     \
     \n                                                               "
 /system ntp client
 set enabled=yes primary-ntp=217.171.24.57 secondary-ntp=217.171.24.58
+#==##==#
 /tool e-mail
-set address=relay.ceso-gto.com
+set address=relay.ceso-gto.com from=mikrotik@ceso-gto.com
