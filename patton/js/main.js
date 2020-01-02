@@ -97,8 +97,8 @@ function generer() {
 	}
 
 	//Vérification de l'adresse IP
-	if(ipaddress == "dhcp" || ipaddress.length <= 15){
-		if(ipaddress == "dhcp"){
+	if(ipaddress.toLowerCase == "dhcp" || ipaddress.length <= 15){
+		if(ipaddress.toLowerCase() == "dhcp"){
 			dhcp = true;
 		}
 	}

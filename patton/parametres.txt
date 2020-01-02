@@ -4,11 +4,11 @@ Login administrateur: ceso
 
 Mot de passe administrateur: isx@3009
 
-Modele: 4171
+Modele: 4131
 
-Adresse IP: static 192.168.1.1 255.255.255.0
+Adresse IP: dhcp
 
-Gateway: route 0.0.0.0/0 gateway 192.168.1.254 metric 0
+Gateway: 
 
 Serveur SIP: sip.openvno.net
 
@@ -22,4 +22,4 @@ Layer 2 protocol: pp
 
 Format d'appel entrant: 10 chiffres
 
-Format d'appel sortant: 9 chiffres
+Format d'appel sortant: 10 chiffres
