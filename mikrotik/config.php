@@ -49,8 +49,11 @@ for($i=2; $i <= 10; $i++){
 
 $hex_rb750gr3 = new Hexrb750gr3($nom, $cesoUser, $cesoMdp, $localUser, $localMdp, $affectation[2], $affectation[3], $affectation[4], $affectation[5], $nat, $clientIP, $gatewayIP);
 $rb951 = new Rb951($nom, $cesoUser, $cesoMdp, $localUser, $localMdp, $affectation[2], $affectation[3], $affectation[4], $affectation[5], $nat, $ssid, $psk, $clientIP, $gatewayIP);
-$rb3011 = new Rb3011($nom, $cesoUser, $cesoMdp, $localUser, $localMdp, $affectation[2], $affectation[3], $affectation[4], $affectation[5], $affectation[6], $affectation[7], $affectation[8], $affectation[9], $affectation[10], $nat, $ssid, $psk, $clientIP, $gatewayIP);
+$rb3011 = new Rb3011($nom, $cesoUser, $cesoMdp, $localUser, $localMdp, $affectation[2], $affectation[3], $affectation[4], $affectation[5], $affectation[6], $affectation[7], $affectation[8], $affectation[9], $affectation[10], $nat, $clientIP, $gatewayIP);
 
+
+unlink("config.rsc");
+unlink("parametres.txt");
 if($_POST['modele'] == 'hex-rb750gr3'){
 	file_put_contents('config.rsc', $hex_rb750gr3->afficher_config());
 }
@@ -67,7 +70,7 @@ Nom d'utilisateur ceso: ".$cesoUser."\n
 Mot de passe ceso: ".$cesoMdp."\n
 Nom d'utilisateur client: ".$localUser."\n
 Mot de passe client: ".$localMdp."\n
-Modèle: ".$_POST['modele']."\n
+Modele: ".$_POST['modele']."\n
 NAT: ".$nat."\n
 SSID: ".$ssid."\n
 PSK: ".$psk."\n

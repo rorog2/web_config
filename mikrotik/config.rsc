@@ -74,12 +74,12 @@ set dccp disabled=yes
 set sctp disabled=yes
 /ip firewall filter
 # INPUT
+#Autorisation WAN vers routeur
+add action=accept chain=input comment="Autorisation liste @IP venant du WAN" in-interface=eth1 src-address-list=WAN_allowed
 add action=accept chain=input comment="Connexion deja etablie" connection-state=established,related
 add action=accept chain=input src-address-list=local_subnet
 add action=accept chain=input protocol=icmp
 add action=drop chain=input
-#Autorisation WAN vers routeur
-add action=accept chain=input comment="Autorisation liste @IP venant du WAN" in-interface=eth1 src-address-list=WAN_allowed
 # FORWARD
 add action=fasttrack-connection chain=forward comment=FastTrack connection-state=established,related
 add action=accept chain=forward comment="Connexion deja etablie"  connection-state=established,related
@@ -128,7 +128,7 @@ set strong-crypto=yes forwarding-enabled=remote
 /system clock
 set time-zone-name=Europe/Paris
 /system identity
-set name=fxbfd
+set name=test
 /system note
 set note="   ____                              _____    _                     \
     \_        \
@@ -151,5 +151,6 @@ set note="   ____                              _____    _                     \
     \n                                                               "
 /system ntp client
 set enabled=yes primary-ntp=217.171.24.57 secondary-ntp=217.171.24.58
+#==##==#
 /tool e-mail
-set address=relay.ceso-gto.com
+set address=relay.ceso-gto.com from=mikrotik@ceso-gto.com

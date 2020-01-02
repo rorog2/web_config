@@ -1,5 +1,5 @@
 <?php
-$version = "v1.0beta";
+$version = "v1.0beta1";
 
 if(isset($_GET['download'])){
 	header('Content-Type: application/octet-stream');
@@ -120,6 +120,11 @@ if(isset($_GET['download'])){
 								<span class="glyphicon glyphicon-ok-sign"></span>
 								Générer
 							</button>
+							<a href="parametres.txt" target="_blank">
+								<button type="button" id="generer" class="btn btn-warning">
+									Vérifier les paramètres
+								</button>
+							</a>
 							<a href="../index.php">
 								<button type="button" id="generer" class="btn btn-danger">
 									Retour vers l'acceuil
