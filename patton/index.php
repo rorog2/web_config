@@ -142,6 +142,11 @@ if(isset($_GET['download'])){
 							<button type="button" id="generer" class="btn btn-primary">
 								Générer
 							</button>
+							<a href="parametres.txt" target="_blank">
+								<button type="button" class="btn btn-warning">
+									Vérifier les paramètres
+								</button>
+							</a>
 							<a href="../index.php">
 								<button type="button" class="btn btn-danger">
 									Retour vers l'acceuil

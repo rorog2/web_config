@@ -69,7 +69,8 @@ $m4638 = new M4634($hostname, $administrator, $mdp, $adressage, $gateway, $dns, 
 $m4634 = new M4638($hostname, $administrator, $mdp, $adressage, $gateway, $dns, $sntp, $sipserverIP, $sipserverPort, $sipserverLogin, $sipserverPassword, $l2protocol, $incall, $outcall);
 $m4970 = new M4970($hostname, $administrator, $mdp, $adressage, $gateway, $dns, $sntp, $sipserverIP, $sipserverPort, $sipserverLogin, $sipserverPassword, $l2protocol, $incall, $outcall, $canauxt2);
 
-
+unlink("config.cfg");
+unlink("parametres.txt");
 
 //Génération du fichier de configuration
 if($modele == "4131"){
@@ -104,11 +105,6 @@ Format d'appel entrant: ".$incallform." chiffres\n
 Format d'appel sortant: ".$outcallform." chiffres";
 
 file_put_contents("parametres.txt", $parametres);
-
-header('Content-Type: text/plain');
-header('Content-Disposition: attachment; filename=parametres.txt;');
-header('Content-Length: '.filesize('parametres.txt'));
-readfile('parametres.txt');
 
 header('Location: index.php?download');
 

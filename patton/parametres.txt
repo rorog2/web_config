@@ -1,14 +1,14 @@
-Hostname: test
+Hostname: TEST
 
-Login administrateur: admin
+Login administrateur: ceso
 
-Mot de passe administrateur: ceso
+Mot de passe administrateur: isx@3009
 
-Modele: 4634
+Modele: 4171
 
-Adresse IP: dhcp
+Adresse IP: static 192.168.1.1 255.255.255.0
 
-Gateway: 
+Gateway: route 0.0.0.0/0 gateway 192.168.1.254 metric 0
 
 Serveur SIP: sip.openvno.net
 
@@ -16,10 +16,10 @@ Port serveur SIP: 5060
 
 Login serveur SIP: admin
 
-Password serveur SIP: ceso
+Password serveur SIP: isx@3009
 
 Layer 2 protocol: pp
 
-Format d'appel entrant: 10
+Format d'appel entrant: 10 chiffres
 
-Format d'appel sortant: 10
+Format d'appel sortant: 9 chiffres
