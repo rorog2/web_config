@@ -1,5 +1,5 @@
 <?php
-$version = "v1.0beta2";
+$version = "v1.0beta3";
 
 if(isset($_GET['download'])){
 	header('Content-Type: application/octet-stream');
