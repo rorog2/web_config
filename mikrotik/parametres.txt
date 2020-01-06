@@ -1,4 +1,4 @@
-Nom du router: test
+Nom du router: gehjkuyjhtrgfed
 
 Nom d'utilisateur ceso: gto
 
@@ -8,14 +8,14 @@ Nom d'utilisateur client: client
 
 Mot de passe client: gto-admin
 
-Modèle: hex-rb750gr3
+Modele: hex-rb750gr3
 
-NAT: on
+NAT: 
 
 SSID: 
 
 PSK: 
 
-IP client: 1.1.1.1
+IP client: 5.5.6.3
 
-IP Gateway: 2.2.2.2
+IP Gateway: 4.4.4.4

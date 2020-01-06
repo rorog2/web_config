@@ -85,7 +85,7 @@ if(isset($_GET['download'])){
 						</p>
 						<p>
 							<label for="nat">NAT: </label>
-							<input type="checkbox" name="nat" id="nat" checked  class="form-control checkbox"/>
+							<input type="checkbox" name="nat" id="nat" value="nat" checked  class="form-control checkbox"/>
 						</p>
 						<p>
 							<label for="SSID">SSID: </label>

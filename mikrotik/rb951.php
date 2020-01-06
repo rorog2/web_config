@@ -24,6 +24,7 @@ add bridge=lan".$eth5." interface=eth5";
     	$fileNAT = 'config/nat.rsc';
     	$fichierNAT = fopen($fileNAT, 'r');
 		$this->firewall = fread($fichierNAT, filesize ($fileNAT));
+        fclose($fichierNAT);
 
 
     	//Remplacement

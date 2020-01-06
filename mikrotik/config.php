@@ -4,6 +4,8 @@ include('hex_rb750gr3.php');
 include('rb951.php');
 include('rb3011-uias-rm.php');
 
+$nat = false;
+
 $nom = $_POST['nom'];
 $cesoUser = $_POST['cesoUser'];
 $cesoMdp = $_POST['cesoMdp'];
@@ -15,7 +17,13 @@ for ($i = 2; $i <= 10; $i++) {
 	if(isset($_POST['e1'.$i])){$interfaceLAN1[$i] = $_POST['e1'.$i];}
 	if(isset($_POST['e2'.$i])){$interfaceLAN2[$i] = $_POST['e2'.$i];}
 }
-$nat = $_POST['nat'];
+if(!empty($_POST['nat']) && isset($_POST['nat'])){
+	$nat = true;
+}
+else{
+	$nat = false;
+	//echo '<script type="text/javascript">alert("'.$nat.'");</script>';
+}
 if(isset($_POST['ssid'])){$ssid = $_POST['ssid'];}
 if(isset($_POST['psk'])){$psk = $_POST['psk'];}
 $IPClient = array();
