@@ -49,7 +49,7 @@ add bridge=lan1 interface=eth5
 /ip address
 add address=192.168.1.1/24 interface=lan1 network=192.168.1.0
 add address=192.168.2.1/24 interface=lan2 network=192.168.2.0
-add address=11.11.11.11 interface=eth1 network=99.99.99.99
+add address=1.1.1.1 interface=eth1 network=2.2.2.2
 /ip dhcp-server network
 add address=192.168.1.0/24 dhcp-option=66,114 dns-server=192.168.1.1 gateway=\
     192.168.1.1 netmask=24
@@ -111,7 +111,7 @@ add address=192.168.2.0/24 comment=lan1 list=local_subnet
 # Liste d'adresse autoriser du WAN sur le routeur
 add address=85.14.154.114 comment="@IP CESO" list=WAN_allowed
 /ip route
-add distance=1 gateway=99.99.99.99
+add distance=1 gateway=2.2.2.2
 /ip service
 set telnet disabled=yes
 set ftp disabled=yes
@@ -128,7 +128,7 @@ set strong-crypto=yes forwarding-enabled=remote
 /system clock
 set time-zone-name=Europe/Paris
 /system identity
-set name=retyuioçàpiuyjtr
+set name=fqsfqsz
 /system note
 set note="   ____                              _____    _                     \
     \_        \

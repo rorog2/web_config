@@ -115,6 +115,9 @@ if(isset($_GET['download'])){
 						</p>
 					</fieldset>
 					<p>
+						<span style="color:red;font-weight:bold;">Avant d'importer la configuration dans le routeur Mikrotik, il faut faire un "System -> Reset Configuration" en cochant la case "No default configuration". Ensuite, après le redémarrage, aller dans "Files" et importé la configuration télécharger. Pour finir, ouvrez un terminal et taper "import &ltnom fichier&gt".</span>
+					</p>
+					<p>
 						<center>
 							<button type="button" id="generer" class="btn btn-primary">
 								<span class="glyphicon glyphicon-ok-sign"></span>

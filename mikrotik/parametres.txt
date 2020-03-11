@@ -1,4 +1,4 @@
-Nom du router: retyuioçàpiuyjtr
+Nom du router: fqsfqsz
 
 Nom d'utilisateur ceso: gto
 
@@ -16,6 +16,6 @@ SSID:
 
 PSK: 
 
-IP client: 11.11.11.11
+IP client: 1.1.1.1
 
-IP Gateway: 99.99.99.99
+IP Gateway: 2.2.2.2
