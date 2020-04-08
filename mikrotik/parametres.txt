@@ -1,4 +1,4 @@
-Nom du router: retyuioçàpiuyjtr
+Nom du router: ErnestPortNeuf
 
 Nom d'utilisateur ceso: gto
 
@@ -8,14 +8,14 @@ Nom d'utilisateur client: client
 
 Mot de passe client: gto-admin
 
-Modele: hex-rb750gr3
+Modele: rb951
 
 NAT: 1
 
-SSID: 
+SSID: Ernest
 
-PSK: 
+PSK: ErnestLeGlacier
 
-IP client: 11.11.11.11
+IP client:  185.180.93.115
 
-IP Gateway: 99.99.99.99
+IP Gateway: 185.180.93.114
