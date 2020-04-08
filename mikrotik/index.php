@@ -1,5 +1,5 @@
 <?php
-$version = "v1.0beta3";
+$version = "v1.0beta4";
 
 if(isset($_GET['download'])){
 	header('Content-Type: application/octet-stream');
@@ -114,6 +114,9 @@ if(isset($_GET['download'])){
 							<input class="ip" type="text" name="ipgateway4" id="ipgateway4" class="form-control ip" />
 						</p>
 					</fieldset>
+					<p>
+						<span style="color:red;font-weight:bold;">Avant d'importer la configuration dans le routeur Mikrotik, il faut faire un "System -> Reset Configuration" en cochant la case "No default configuration". Ensuite, après le redémarrage, aller dans "Files" et importé la configuration télécharger. Pour finir, ouvrez un terminal et taper "import &ltnom fichier&gt".</span>
+					</p>
 					<p>
 						<center>
 							<button type="button" id="generer" class="btn btn-primary">

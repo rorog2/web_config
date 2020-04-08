@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Nom du router: ErnestPortNeuf
+=======
+Nom du router: fqsfqsz
+>>>>>>> 97b093ed4ba49cc6ec094f08f54ba0cdb87950ce
 
 Nom d'utilisateur ceso: gto
 
@@ -16,6 +20,12 @@ SSID: Ernest
 
 PSK: ErnestLeGlacier
 
+<<<<<<< HEAD
 IP client:  185.180.93.115
 
 IP Gateway: 185.180.93.114
+=======
+IP client: 1.1.1.1
+
+IP Gateway: 2.2.2.2
+>>>>>>> 97b093ed4ba49cc6ec094f08f54ba0cdb87950ce
